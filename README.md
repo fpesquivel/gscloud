@@ -23,7 +23,7 @@ flowchart LR
 | Elemento | Especificação Planejada | Função na Arquitetura |
 | :--- | :--- | :--- |
 | **Provedor & Região** | Microsoft Azure (`brazilsouth`) | Hospedagem em nuvem com baixa latência no Brasil. |
-| **Máquina Virtual (SKU)** | `Standard_B1s` (1 vCPU, 1 GiB RAM) | Instância burstable econômica ideal para APIs leves. |
+| **Máquina Virtual (SKU)** | `Standard D2as v4` (1 vCPU, 1 GiB RAM) | Instância burstable econômica ideal para APIs leves. |
 | **Sistema Operacional** | Ubuntu Server 22.04 LTS (x64) | Base do servidor de aplicação e proxy reverso. |
 | **Armazenamento** | Azure Managed Disk — Standard SSD (30 GB, LRS) | Persistência do sistema e do banco `/var/lib/tarefas-api/tarefas.db`. |
 | **Rede / Segurança** | VNet + IP Público Estático + NSG (Portas 22 e 80) | Controle de tráfego HTTP e administração via SSH. |
@@ -54,15 +54,3 @@ pytest -v
 # Iniciar o servidor localmente
 uvicorn app.main:app --reload
 ```
-
-Acesse `http://127.0.0.1:8000/docs` no navegador.
-
-## 5. Como Implantar na Nuvem (Azure VM)
-
-1. Suba este repositório na sua conta do GitHub.
-2. Crie a VM executando `bash deploy/azure_cli_provision.sh` (ou pelo Portal Azure).
-3. Conecte via SSH na VM e execute:
-   ```bash
-   curl -sSL https://raw.githubusercontent.com/fpesquivel/tarefas-api/main/deploy/setup_vm.sh | sudo bash -s https://github.com/SEU_USUARIO/tarefas-api.git
-   ```
-4. Acesse `http://IP_PUBLICO_DA_VM/docs`.
