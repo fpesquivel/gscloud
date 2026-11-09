@@ -63,6 +63,6 @@ Acesse `http://127.0.0.1:8000/docs` no navegador.
 2. Crie a VM executando `bash deploy/azure_cli_provision.sh` (ou pelo Portal Azure).
 3. Conecte via SSH na VM e execute:
    ```bash
-   curl -sSL https://raw.githubusercontent.com/SEU_USUARIO/tarefas-api/main/deploy/setup_vm.sh | sudo bash -s https://github.com/SEU_USUARIO/tarefas-api.git
+   curl -sSL https://raw.githubusercontent.com/fpesquivel/tarefas-api/main/deploy/setup_vm.sh | sudo bash -s https://github.com/SEU_USUARIO/tarefas-api.git
    ```
 4. Acesse `http://IP_PUBLICO_DA_VM/docs`.
